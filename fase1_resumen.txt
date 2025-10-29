@@ -1,0 +1,22 @@
+IP objetivo: 10.10.210.238 
+
+
+Servicios detectados (versiones):
+
+FTP: vsftpd 3.0.5. 
+
+
+SSH: OpenSSH 8.2p1 (Ubuntu 4ubuntu0.13). 
+
+
+SMB (NetBIOS/SMB): Samba smbd 4.6.2 (puertos 139, 445). 
+
+
+HTTP (proxy): Squid 4.10 (puerto 3128). 
+
+
+HTTP (web): Apache httpd 2.4.41 (Ubuntu) (puerto 3333) — título de página: Vuln University. 
+
+
+Hipótesis de ataque:
+Hicimos reconocimiento para ver qué servicios estaban abiertos. La parte más interesante fue SMB (se pudieron enumerar usuarios como bill y ubuntu) y los servicios web/proxy que podrían tener archivos o ser usados por un atacante.

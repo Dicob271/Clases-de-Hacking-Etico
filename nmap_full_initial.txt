@@ -1,0 +1,33 @@
+root@ip-10-10-193-126:~/vulnversity# nmap -sC -sV -p 21,22,139,445,3128,3333 10.10.210.238 -oN nmap_service_enum.txt
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-10-22 22:42 BST
+mass_dns: warning: Unable to open /etc/resolv.conf. Try using --system-dns or specify valid servers with --dns-servers
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 10.10.210.238
+Host is up (0.00038s latency).
+
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.5
+22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+139/tcp  open  netbios-ssn Samba smbd 4.6.2
+445/tcp  open  netbios-ssn Samba smbd 4.6.2
+3128/tcp open  http-proxy  Squid http proxy 4.10
+|_http-server-header: squid/4.10
+|_http-title: ERROR: The requested URL could not be retrieved
+3333/tcp open  http        Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Vuln University
+MAC Address: 02:EB:AD:E1:9C:6B (Unknown)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: -2s
+|_nbstat: NetBIOS name: , NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2025-10-22T21:42:54
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 26.04 seconds

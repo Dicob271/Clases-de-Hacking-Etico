@@ -1,0 +1,17 @@
+Vector explotado: - RCE en servicio HTTP/Apache (endpoint vulnerable encontrado mediante enumeración web y directorios expuestos).
+Comandos clave ejecutados:
+- nmap -sC -sV -p- -T4 -oN nmap_full.txt 10.201.96.207
+- gobuster dir -u http://10.201.96.207/ -w /usr/share/wordlists/dirb/common.txt -t 50
+- curl -I http://10.201.96.207/
+- curl http://10.201.96.207/ruta_vulnerable
+- searchsploit "<software> <versión>"
+- nc -nlvp 4444  
+- ssh usuario@10.201.96.207
+- sudo -l
+- find / -perm -4000 -type f 2>/dev/null
+Acceso conseguido:
+- user: acceso de usuario conseguido mediante ejecución remota/credenciales encontradas en recursos expuestos.
+- root: ) escalada de privilegios potencial mediante binario SUID o configuración sudo vulnerable. .
+Recomendaciones de mitigación:
+- Aplicar parches y actualizaciones al servidor y a módulos (actualizar Apache y eliminar versiones vulnerables).
+- Revisar política de privilegios: limitar entradas en sudoers, eliminar SUID innecesarios, endurecer servicios web y aplicar filtrado/WAF.
